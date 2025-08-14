@@ -104,12 +104,25 @@ h1, h2, h3 {
 }
 
 /* Book list filters */
+.book-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.book-list-main {
+    flex: 3;
+    min-width: 300px;
+}
+
 .book-list-filters {
+    flex: 1;
     background-color: white;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     margin-bottom: 20px;
+    min-width: 250px;
 }
 
 .filter-form {
