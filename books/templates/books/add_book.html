@@ -15,55 +15,55 @@
 <form method="post" class="book-form">
     {% csrf_token %}
     
-    <div class="form-group">
-        <label for="{{ form.title.id_for_label }}">{{ form.title.label }}{% if form.title.field.required %} *{% endif %}</label>
+    <div class="mb-3">
+        <label for="{{ form.title.id_for_label }}" class="form-label">{{ form.title.label }}{% if form.title.field.required %} *{% endif %}</label>
         {{ form.title }}
         {% if form.title.help_text %}
-            <small class="form-text text-muted">{{ form.title.help_text }}</small>
+            <div class="form-text">{{ form.title.help_text }}</div>
         {% endif %}
         {% if form.title.errors %}
             <div class="alert alert-danger">{{ form.title.errors }}</div>
         {% endif %}
     </div>
     
-    <div class="form-group">
-        <label for="{{ form.author.id_for_label }}">{{ form.author.label }}{% if form.author.field.required %} *{% endif %}</label>
+    <div class="mb-3">
+        <label for="{{ form.author.id_for_label }}" class="form-label">{{ form.author.label }}{% if form.author.field.required %} *{% endif %}</label>
         {{ form.author }}
         {% if form.author.help_text %}
-            <small class="form-text text-muted">{{ form.author.help_text }}</small>
+            <div class="form-text">{{ form.author.help_text }}</div>
         {% endif %}
         {% if form.author.errors %}
             <div class="alert alert-danger">{{ form.author.errors }}</div>
         {% endif %}
     </div>
     
-    <div class="form-group">
-        <label for="{{ form.date_finished.id_for_label }}">{{ form.date_finished.label }}{% if form.date_finished.field.required %} *{% endif %}</label>
+    <div class="mb-3">
+        <label for="{{ form.date_finished.id_for_label }}" class="form-label">{{ form.date_finished.label }}{% if form.date_finished.field.required %} *{% endif %}</label>
         {{ form.date_finished }}
         {% if form.date_finished.help_text %}
-            <small class="form-text text-muted">{{ form.date_finished.help_text }}</small>
+            <div class="form-text">{{ form.date_finished.help_text }}</div>
         {% endif %}
         {% if form.date_finished.errors %}
             <div class="alert alert-danger">{{ form.date_finished.errors }}</div>
         {% endif %}
     </div>
     
-    <div class="form-group">
-        <label for="{{ form.rating.id_for_label }}">{{ form.rating.label }}{% if form.rating.field.required %} *{% endif %}</label>
+    <div class="mb-3">
+        <label for="{{ form.rating.id_for_label }}" class="form-label">{{ form.rating.label }}{% if form.rating.field.required %} *{% endif %}</label>
         {{ form.rating }}
         {% if form.rating.help_text %}
-            <small class="form-text text-muted">{{ form.rating.help_text }}</small>
+            <div class="form-text">{{ form.rating.help_text }}</div>
         {% endif %}
         {% if form.rating.errors %}
             <div class="alert alert-danger">{{ form.rating.errors }}</div>
         {% endif %}
     </div>
     
-    <div class="form-group">
-        <label for="{{ form.notes.id_for_label }}">{{ form.notes.label }}{% if form.notes.field.required %} *{% endif %}</label>
+    <div class="mb-3">
+        <label for="{{ form.notes.id_for_label }}" class="form-label">{{ form.notes.label }}{% if form.notes.field.required %} *{% endif %}</label>
         {{ form.notes }}
         {% if form.notes.help_text %}
-            <small class="form-text text-muted">{{ form.notes.help_text }}</small>
+            <div class="form-text">{{ form.notes.help_text }}</div>
         {% endif %}
         {% if form.notes.errors %}
             <div class="alert alert-danger">{{ form.notes.errors }}</div>

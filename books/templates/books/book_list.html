@@ -7,14 +7,14 @@
 
 <div class="book-list-filters">
     <form method="get" class="filter-form">
-        <div class="form-group">
-            <label for="author">Author:</label>
-            <input type="text" name="author" id="author" value="{{ filter_author }}" placeholder="Search by author">
+        <div class="mb-3">
+            <label for="author" class="form-label">Author:</label>
+            <input type="text" name="author" id="author" value="{{ filter_author }}" placeholder="Search by author" class="form-control">
         </div>
         
-        <div class="form-group">
-            <label for="rating_min">Minimum Rating:</label>
-            <select name="rating_min" id="rating_min">
+        <div class="mb-3">
+            <label for="rating_min" class="form-label">Minimum Rating:</label>
+            <select name="rating_min" id="rating_min" class="form-select">
                 <option value="">Any</option>
                 <option value="1" {% if filter_rating_min == "1" %}selected{% endif %}>1 Star</option>
                 <option value="2" {% if filter_rating_min == "2" %}selected{% endif %}>2 Stars</option>
@@ -24,9 +24,9 @@
             </select>
         </div>
         
-        <div class="form-group">
-            <label for="rating_max">Maximum Rating:</label>
-            <select name="rating_max" id="rating_max">
+        <div class="mb-3">
+            <label for="rating_max" class="form-label">Maximum Rating:</label>
+            <select name="rating_max" id="rating_max" class="form-select">
                 <option value="">Any</option>
                 <option value="1" {% if filter_rating_max == "1" %}selected{% endif %}>1 Star</option>
                 <option value="2" {% if filter_rating_max == "2" %}selected{% endif %}>2 Stars</option>
@@ -36,14 +36,14 @@
             </select>
         </div>
         
-        <div class="form-group">
-            <label for="date_from">Date From:</label>
-            <input type="date" name="date_from" id="date_from" value="{{ filter_date_from }}">
+        <div class="mb-3">
+            <label for="date_from" class="form-label">Date From:</label>
+            <input type="date" name="date_from" id="date_from" value="{{ filter_date_from }}" class="form-control">
         </div>
         
-        <div class="form-group">
-            <label for="date_to">Date To:</label>
-            <input type="date" name="date_to" id="date_to" value="{{ filter_date_to }}">
+        <div class="mb-3">
+            <label for="date_to" class="form-label">Date To:</label>
+            <input type="date" name="date_to" id="date_to" value="{{ filter_date_to }}" class="form-control">
         </div>
         
         <button type="submit" class="btn btn-primary">Apply Filters</button>
@@ -53,7 +53,7 @@
 
 <div class="book-list">
     {% if books %}
-        <table class="book-table">
+        <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>
@@ -93,27 +93,37 @@
         </table>
         
         <!-- Pagination -->
-        <div class="pagination">
-            <span class="step-links">
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center">
                 {% if books.has_previous %}
-                    <a href="?page=1&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">&laquo; first</a>
-                    <a href="?page={{ books.previous_page_number }}&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">previous</a>
+                    <li class="page-item">
+                        <a class="page-link" href="?page=1&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">&laquo; first</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ books.previous_page_number }}&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">previous</a>
+                    </li>
                 {% endif %}
         
-                <span class="current">
-                    Page {{ books.number }} of {{ books.paginator.num_pages }}
-                </span>
+                <li class="page-item active">
+                    <span class="page-link">
+                        Page {{ books.number }} of {{ books.paginator.num_pages }}
+                    </span>
+                </li>
         
                 {% if books.has_next %}
-                    <a href="?page={{ books.next_page_number }}&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">next</a>
-                    <a href="?page={{ books.paginator.num_pages }}&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">last &raquo;</a>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ books.next_page_number }}&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">next</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ books.paginator.num_pages }}&sort_by={{ sort_by }}&sort_order={{ sort_order }}{% if filter_author %}&author={{ filter_author }}{% endif %}{% if filter_rating_min %}&rating_min={{ filter_rating_min }}{% endif %}{% if filter_rating_max %}&rating_max={{ filter_rating_max }}{% endif %}{% if filter_date_from %}&date_from={{ filter_date_from }}{% endif %}{% if filter_date_to %}&date_to={{ filter_date_to }}{% endif %}">last &raquo;</a>
+                    </li>
                 {% endif %}
-            </span>
-        </div>
+            </ul>
+        </nav>
     {% else %}
         <p>No books found.</p>
     {% endif %}
 </div>
 
-<a href="{% url 'books:add_book' %}" class="btn btn-primary">Add New Book</a>
+<a href="{% url 'books:add_book' %}" class="btn btn-primary btn-green">Add New Book</a>
 {% endblock %}

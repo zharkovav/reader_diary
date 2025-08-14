@@ -22,7 +22,6 @@ body {
 }
 
 .header {
-    background-color: #333;
     color: white;
     padding: 1rem 0;
 }
@@ -30,11 +29,6 @@ body {
 .header h1 {
     text-align: center;
     margin: 0;
-}
-
-nav {
-    background-color: #555;
-    padding: 0.5rem 0;
 }
 
 nav ul {
@@ -63,7 +57,6 @@ nav ul li a:hover {
 }
 
 .footer {
-    background-color: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
@@ -181,6 +174,15 @@ h1, h2, h3 {
 
 .btn-secondary:hover {
     background-color: #545b62;
+}
+
+.btn-green {
+    background-color: #28a745;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #218838;
 }
 
 /* Alerts */
