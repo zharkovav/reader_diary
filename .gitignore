@@ -1,2 +1,7 @@
 .idea/
-
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
